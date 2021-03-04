@@ -11,12 +11,8 @@
 </template>
 
 <script>
-import SwipeSelect from './components/SwipeSelect.vue'
-
-const toOption = (value) => ({
-  value,
-  label: `${value}`,
-});
+import SwipeSelect from './components/SwipeSelect.vue';
+import { toOption } from './utils/mappers';
 
 export default {
   name: 'App',
