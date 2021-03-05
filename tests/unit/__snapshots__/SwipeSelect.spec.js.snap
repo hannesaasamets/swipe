@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SwipeSelect.vue Renders the default snapshot 1`] = `
+exports[`SwipeSelect.vue In edit mode Renders the snapshot 1`] = `
 <div
   class="swipe-select"
 >
@@ -14,6 +14,7 @@ exports[`SwipeSelect.vue Renders the default snapshot 1`] = `
     >
       
       <option
+        data-selected-label="previous value label"
         value="36"
       >
         36
@@ -34,22 +35,209 @@ exports[`SwipeSelect.vue Renders the default snapshot 1`] = `
       €/Month
     </span>
   </label>
-  <swiper-stub
+  <div
     aria-disabled="false"
     aria-orientation="horizontal"
-    breakpoints="[object Object]"
-    centeredslides=""
-    class="swipe-select__swiper"
-    freemode=""
-    freemodesticky=""
-    grabcursor=""
-    initialslide="0"
-    keyboard=""
+    class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-free-mode swipe-select__swiper"
     role="listbox"
-    slides-per-view="5"
-    slidetoclickedslide=""
-    space-between="4"
-  />
+    style="cursor: grab;"
+  >
+    
+    
+    <!---->
+    <!---->
+    <!---->
+    <div
+      class="swiper-wrapper"
+      style="transition-duration: 0ms; transform: translate3d(NaNpx, 0px, 0px);"
+    >
+      
+      
+      
+      <div
+        aria-hidden="false"
+        aria-selected="true"
+        class="swiper-slide swipe-select__option"
+        data-index="0"
+        data-value="36"
+        role="option"
+      >
+        <transition-stub>
+          <div
+            class="swipe-select__option-value"
+          >
+            36
+          </div>
+        </transition-stub>
+      </div>
+      <div
+        aria-hidden="false"
+        class="swiper-slide swipe-select__option"
+        data-index="1"
+        data-value="40"
+        role="option"
+      >
+        <transition-stub>
+          <div
+            class="swipe-select__option-value"
+          >
+            40
+          </div>
+        </transition-stub>
+      </div>
+      <div
+        aria-hidden="false"
+        class="swiper-slide swipe-select__option"
+        data-index="2"
+        data-value="45"
+        role="option"
+      >
+        <transition-stub>
+          <div
+            class="swipe-select__option-value"
+          >
+            45
+          </div>
+        </transition-stub>
+      </div>
+      
+      
+      
+    </div>
+    
+    <div
+      class="swipe-select__label-before"
+    >
+      previous value label
+    </div>
+    <div
+      class="swipe-select__label-after"
+    >
+      €/Month
+    </div>
+    
+  </div>
+  <!--v-if-->
+</div>
+`;
+
+exports[`SwipeSelect.vue Renders the default snapshot 1`] = `
+<div
+  class="swipe-select"
+>
+  <label
+    aria-hidden="true"
+    class="swipe-select__select"
+  >
+    <select
+      autocomplete="off"
+      name="amountPerMonth"
+    >
+      
+      <option
+        data-selected-label="previous value label"
+        value="36"
+      >
+        36
+      </option>
+      <option
+        value="40"
+      >
+        40
+      </option>
+      <option
+        value="45"
+      >
+        45
+      </option>
+      
+    </select>
+    <span>
+      €/Month
+    </span>
+  </label>
+  <div
+    aria-disabled="false"
+    aria-orientation="horizontal"
+    class="swiper-container swipe-select__swiper swiper-container-initialized swiper-container-horizontal swiper-container-free-mode"
+    role="listbox"
+    style="cursor: grab;"
+  >
+    
+    
+    <!---->
+    <!---->
+    <!---->
+    <div
+      class="swiper-wrapper"
+      style="transition-duration: 0ms; transform: translate3d(NaNpx, 0px, 0px);"
+    >
+      
+      
+      
+      <div
+        aria-hidden="false"
+        aria-selected="true"
+        class="swiper-slide swipe-select__option"
+        data-index="0"
+        data-value="36"
+        role="option"
+      >
+        <transition-stub>
+          <div
+            class="swipe-select__option-value"
+          >
+            36
+          </div>
+        </transition-stub>
+      </div>
+      <div
+        aria-hidden="false"
+        class="swiper-slide swipe-select__option"
+        data-index="1"
+        data-value="40"
+        role="option"
+      >
+        <transition-stub>
+          <div
+            class="swipe-select__option-value"
+          >
+            40
+          </div>
+        </transition-stub>
+      </div>
+      <div
+        aria-hidden="false"
+        class="swiper-slide swipe-select__option"
+        data-index="2"
+        data-value="45"
+        role="option"
+      >
+        <transition-stub>
+          <div
+            class="swipe-select__option-value"
+          >
+            45
+          </div>
+        </transition-stub>
+      </div>
+      
+      
+      
+    </div>
+    
+    <div
+      class="swipe-select__label-before"
+    >
+      previous value label
+    </div>
+    <div
+      class="swipe-select__label-after"
+    >
+      €/Month
+    </div>
+    
+  </div>
   <!--v-if-->
 </div>
 `;

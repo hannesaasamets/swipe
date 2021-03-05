@@ -12,7 +12,7 @@
 
 <script>
 import SwipeSelect from './components/SwipeSelect.vue';
-import { toOption } from './utils/mappers';
+import { toOption } from './utils';
 
 export default {
   name: 'App',

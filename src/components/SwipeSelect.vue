@@ -18,7 +18,7 @@
             :key="slide.value"
             :value="slide.value"
             :selected="ifSelected(slide.value, true)"
-            :data-selected-label="ifSelected(slide.value, 'Current choice')"
+            :data-selected-label="ifSelected(slide.value, previousValueLabel)"
         >
           {{ slide.label }}
         </option>
@@ -45,14 +45,14 @@
         keyboard
         slideToClickedSlide
         grabCursor
-        :initialSlide="getInitialSlideIndex()"
+        :initialSlide="initialSlideIndex"
         @slideChange="onSlideChange"
     >
       <div
           v-if="previousValue === modelValue && isEdited"
           class="swipe-select__label-before"
       >
-        Current choice
+        {{ previousValueLabel }}
       </div>
       <swiper-slide
           v-for="(slide, indexSlide) in slides"
@@ -107,7 +107,14 @@ export default {
     labelAfter: String,
     modelValue: [String, Number],
     previousValue: [String, Number],
+    previousValueLabel: {
+      type: String,
+      default: 'Current choice',
+    }
   },
+  emits: [
+    'update:modelValue',
+  ],
   data() {
     return {
       internalValue: this.modelValue,
@@ -116,7 +123,9 @@ export default {
   },
   mounted() {
     // Allows Swiper to be initialized before hiding it
-    this.$nextTick(() => this.isEdited = false);
+    this.$nextTick(() => {
+      this.isEdited = false;
+    });
   },
   methods: {
     onClick() {
@@ -125,17 +134,17 @@ export default {
     onSlideChange(swiper) {
       const newValue = this.slides[swiper.activeIndex].value;
 
-      if (this.modelValue !== newValue) {
-        this.$emit('update:modelValue', newValue);
-      }
       this.internalValue = newValue;
+      this.$emit('update:modelValue', newValue);
     },
     ifSelected(index, result) {
       return this.internalValue === index
           ? result
           : null;
     },
-    getInitialSlideIndex() {
+  },
+  computed: {
+    initialSlideIndex() {
       const defaultSlideIndex = 0;
       const slideIndex = this.slides
           .map(slide => slide.value)
@@ -147,7 +156,7 @@ export default {
     },
   },
   watch: {
-    value() {
+    modelValue() {
       this.internalValue = this.modelValue;
     },
   },
