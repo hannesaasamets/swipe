@@ -92,6 +92,7 @@ import 'swiper/swiper.scss';
 SwiperCore.use([Keyboard]);
 
 export default {
+  name: 'SwipeSelect',
   components: {
     Swiper,
     SwiperSlide,
@@ -164,14 +165,19 @@ export default {
 </script>
 
 <style scoped lang="scss">
-$active-color: #005e51;
-$active-color-dark: #00817a;
-$black: #474747;
-$white: #fff;
-
 .swipe-select {
+  $ss-default-font: Montserrat, Helvetica, Arial, sans-serif;
+  --ss-default-active: var(--swipe-select-active, #005e51);
+  --ss-default-active-dark: var(--swipe-select-active-dark, #00817a);
+  --ss-default-black: var(--swipe-select-black, #474747);
+  --ss-default-white: var(--swipe-select-white, #fff);
+  font-family: var(--swipe-select-font-family, #{$ss-default-font});
+  font-size: var(--swipe-select-font-size, 16px);
+
   position: relative;
-  color: $black;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--ss-default-black);
 
   &--disabled {
     cursor: pointer;
@@ -193,12 +199,12 @@ $white: #fff;
 
     &::before {
       left: 0;
-      background: linear-gradient(90deg, $white, hsla(0, 0%, 100%, 0));
+      background: linear-gradient(90deg, var(--ss-default-white), hsla(0, 0%, 100%, 0));
     }
 
     &::after {
       right: 0;
-      background: linear-gradient(270deg, $white, hsla(0, 0%, 100%, 0));
+      background: linear-gradient(270deg, var(--ss-default-white), hsla(0, 0%, 100%, 0));
     }
   }
 
@@ -207,7 +213,7 @@ $white: #fff;
   }
 
   &__edit {
-    font-size: .875rem;
+    font-size: .875em;
     text-transform: uppercase;
     position: absolute;
     bottom: 2px;
@@ -220,16 +226,16 @@ $white: #fff;
   }
 
   &__label-before {
-    color: $active-color;
+    color: var(--ss-default-active);
     position: absolute;
     top: 4px;
-    font-size: .875rem;
+    font-size: .875em;
     width: 100%;
   }
 
   &__label-after {
-    font-size: 1.2rem;
-    margin-top: calc(-45px + 1.2rem);
+    font-size: 1.2em;
+    margin-top: calc(-45px + 1.2em);
     margin-bottom: 15px;
 
     .swipe-select--disabled & {
@@ -243,7 +249,7 @@ $white: #fff;
       pointer-events: none;
       box-shadow: 0 0 12px 0 #bbb;
       border-radius: 6px;
-      border-left: 6px solid $active-color-dark;
+      border-left: 6px solid var(--ss-default-active-dark);
       padding: 6px 0 6px 12px;
     }
 
@@ -259,24 +265,24 @@ $white: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.75rem;
+    font-size: 1.75em;
     cursor: pointer;
 
     &.swiper-slide-prev,
     &.swiper-slide-next {
-      font-size: 2rem;
+      font-size: 2em;
     }
 
     &[aria-selected=true] {
-      font-size: 2.5rem;
-      color: $active-color;
+      font-size: 2.5em;
+      color: var(--ss-default-active);
     }
 
     .swipe-select--disabled & {
       align-items: flex-start;
       justify-content: flex-start;
       height: auto;
-      color: $black;
+      color: var(--ss-default-black);
 
       &:not([aria-selected=true]) {
         display: none;
@@ -303,7 +309,7 @@ $white: #fff;
   margin: 0;
   font-family: inherit;
   cursor: pointer;
-  color: $active-color-dark;
+  color: var(--ss-default-active-dark);
   outline-style: none;
 }
 </style>

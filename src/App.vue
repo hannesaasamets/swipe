@@ -1,7 +1,8 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <h1>value: {{ amount }}</h1>
+  <h1>Amount: {{ amount }}</h1>
   <SwipeSelect
+      class="amount-swipe"
       v-model="amount"
       :previousValue="45"
       :slides="slides"
@@ -31,15 +32,28 @@ export default {
 <style lang="scss">
 @import url("http://fonts.googleapis.com/css?family=Montserrat:700");
 
-$active-color: #005e51;
+$font-family: Montserrat, Helvetica, Arial, sans-serif;
+$font-size: 16px;
+$active: #005e51;
+$active-dark: #00817a;
 $black: #474747;
+$white: #fff;
 
 #app {
-  font-family: Montserrat, Helvetica, Arial, sans-serif;
+  font-family: $font-family;
+  color: $black;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #474747;
   margin-top: 60px;
+}
+
+.amount-swipe {
+  --swipe-select-active: #{$active};
+  --swipe-select-active-dark: #{$active-dark};
+  --swipe-select-black: #{$black};
+  --swipe-select-white: #{$white};
+  --swipe-select-font-family: #{$font-family};
+  --swipe-select-font-size: #{$font-size};
 }
 </style>
